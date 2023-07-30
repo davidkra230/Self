@@ -3,6 +3,11 @@
   background-color: #121212;
   color: #eeeeee;
 }
-.WithLove {
-  transform: translate()
+.madeby {
+  position: absolute;
+  top: 100%;
+  transform: translateY(-200%);
+}
+.centerh {
+  text-align: center;
 }
