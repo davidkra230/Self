@@ -9,6 +9,13 @@ app.get(`/`, (req, res) => {
   res.sendFile(__dirname + '/index.html');
 })
 
+app.get(`/api/v1/getprojects`, (req, res) => {
+  // TODO: admin panel
+  res.json({
+    
+  })
+})
+
 app.get(`*`, (req, res) => {
   res.sendFile(__dirname + '/404.html')
 })
