@@ -92,7 +92,7 @@
 
         $('#stuffshowcase-contentbox')[0].innerHTML = renderedHTML
 
-        console.log(renderedHTML)
+        // console.log(renderedHTML)
 
         // set buttons
         if (currentPage > 1) {
