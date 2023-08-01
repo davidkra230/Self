@@ -12,7 +12,23 @@ app.get(`/`, (req, res) => {
 app.get(`/api/v1/getprojects`, (req, res) => {
   // TODO: admin panel
   res.json({
-    
+    creations: [
+      {
+        title: "pdanetshenanigans",
+        description: "A pdanet activation server.",
+        image: {
+          url: "/images/pdanetshenanigans.png",
+          width: 1113,
+          height: 626
+        },
+        links: [
+          {
+            name: "Github",
+            url: "https://github.com/davidkra230/pdanetshenanigans"
+          }
+        ]
+      }
+    ]
   })
 })
 
