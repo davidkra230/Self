@@ -58,7 +58,7 @@
                 var link = creation.links[linkStep]
                 renderedLinks = renderedLinks + `<a href="${link.url}" target="_blank" rel="noopener noreferrer">${link.name}</a>`
             }
-            renderedHTML += `<img width="100%" height="auto" src="${creation.image.url}" alt="preview image"><div><h3 class="horizontal-center">${creation.title}</h3><p>${creation.description}</p><div>${renderedLinks}</div></div>`
+            renderedHTML += `<img src="${creation.image.url}" alt="preview image"><div><h3 class="horizontal-center">${creation.title}</h3><p>${creation.description}</p><div>${renderedLinks}</div></div>`
             renderedHTML += '</div>'
         }
         renderedHTML += '</div>'
