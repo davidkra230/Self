@@ -1,34 +1,7 @@
 (async () => {
     // i like to call this trick "jQuery lite" even though there aren't much similatities
     window.$ = (...a) => { return document.querySelectorAll(a) }
-    // TODO: do it with an api and admin panel
-
-    /*
-    
-    mock data:
-
-    {
-        creations: [
-        {
-            title: "pdanetshenanigans",
-            description: "A pdanet activation server.",
-            image: {
-                url: "/images/pdanetshenanigans.png",
-                    width: 1113,
-                    height: 626
-                },
-                links: [
-                    {
-                        name: "Github",
-                        url: "https://github.com/davidkra230/pdanetshenanigans"
-                    }
-                ]
-            }
-        ]
-    }
-    
-       
-    */
+    // TODO: add an admin panel
 
     // warn small-screen mobile device users
     if (/Mobi/i.test(window.navigator.userAgent)) {
@@ -85,7 +58,7 @@
                 var link = creation.links[linkStep]
                 renderedLinks = renderedLinks + `<a href="${link.url}" target="_blank" rel="noopener noreferrer">${link.name}</a>`
             }
-            renderedHTML += `<img src="${creation.image.url}" alt="preview image"><div><h3 class="horizontal-center">${creation.title}</h3><p>${creation.description}</p><div>${renderedLinks}</div></div>`
+            renderedHTML += `<img width="100%" height="auto" src="${creation.image.url}" alt="preview image"><div><h3 class="horizontal-center">${creation.title}</h3><p>${creation.description}</p><div>${renderedLinks}</div></div>`
             renderedHTML += '</div>'
         }
         renderedHTML += '</div>'
