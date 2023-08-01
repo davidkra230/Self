@@ -77,7 +77,6 @@ button:disabled {
   width: 100%;
   position: relative;
   place-self: center;
-  object-fit: contain;
 }
 
 #stuffshowcase-buttons {
