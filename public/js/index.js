@@ -3,11 +3,6 @@
     window.$ = (...a) => { return document.querySelectorAll(a) }
     // TODO: add an admin panel
 
-    // warn small-screen mobile device users
-    if (/Mobi/i.test(window.navigator.userAgent)) {
-        alert('Your screen resolution may be too small, the website may not fit.\nYou\'ve been lightly warned.')
-    }
-
     // initial variables
     var nextButton
     var lastButton
@@ -34,23 +29,23 @@
         return;
     }
 
-    // pages..
-    totalPages = Math.floor((numCreations / 4) + (1 - 1e-15))
-
-
     // rendering time
     window.renderPage = () => {
+        // pages..
+        totalPages = Math.floor((numCreations / (window.innerWidth / window.innerHeight > 1 ? 4 : 2)) + (1 - 1e-15))
         pageText.innerHTML = `Page ${currentPage}/${totalPages}`
 
+        var itemsPerPage = window.innerWidth / window.innerHeight > 1 ? 4 : 2
+
         var renderedHTML = ''
-        for (var renderStep = (currentPage - 1) * 4; renderStep < ((currentPage - 1) * 4) + 4; renderStep++) {
+        for (var renderStep = (currentPage - 1) * itemsPerPage; renderStep < ((currentPage - 1) * itemsPerPage) + itemsPerPage; renderStep++) {
             if (result.creations[renderStep] == null) {
                 break
             }
             // console.log(renderStep)
-            
+
             renderedHTML += '<div>'
-            
+
             var creation = result.creations[renderStep]
 
             var renderedLinks = '';
@@ -85,20 +80,40 @@
     renderPage()
 
     // make button work
-    nextButton.onclick = ()=>{
-        if (currentPage+1 > totalPages) {
+    nextButton.onclick = () => {
+        if (currentPage + 1 > totalPages) {
             return
         }
         currentPage += 1
         renderPage()
     }
 
-    lastButton.onclick = ()=>{
-        if (currentPage-1 < 0) {
+    lastButton.onclick = () => {
+        if (currentPage - 1 < 0) {
             return
         }
         currentPage -= 1
         renderPage()
     }
+
+    // responsive page non-sense (actually i know 95% what im doing)
+    var lastWidth = window.innerWidth
+    var lastHeight = window.innerHeight
+    var lastMobileMode = window.innerWidth / window.innerHeight > 1 ? false : true
+    var change = false
+
+    setInterval(()=>{
+        var mobileMode = window.innerWidth / window.innerHeight > 1 ? false : true
+        if (change == true) {
+            change = false
+            lastWidth = window.innerWidth
+            lastHeight = window.innerHeight
+
+            renderPage()
+        } else if ((window.innerWidth / window.innerHeight > 1 ? false : true) && !(lastMobileMode == mobileMode)) {
+            lastMobileMode = mobileMode
+            change = true
+        }
+    }, 50)
 
 })()
