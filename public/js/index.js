@@ -1,6 +1,6 @@
 (async () => {
     // i like to call this trick "jQuery lite" even though there aren't much similatities
-    window.$ = (...a) => { return document.querySelectorAll(a) }
+    var $ = (...a) => { return document.querySelectorAll(a) }
     // TODO: add an admin panel
 
     // initial variables
@@ -30,7 +30,7 @@
     }
 
     // rendering time
-    window.renderPage = () => {
+    var renderPage = () => {
         // pages..
         totalPages = Math.floor((numCreations / (window.innerWidth / window.innerHeight > 1 ? 4 : 2)) + (1 - 1e-15))
         pageText.innerHTML = `Page ${currentPage}/${totalPages}`
