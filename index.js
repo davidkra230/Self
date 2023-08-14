@@ -17,9 +17,7 @@ app.get(`/api/v1/getprojects`, (req, res) => {
         title: "pdanetshenanigans",
         description: "A pdanet activation server.",
         image: {
-          url: "/images/pdanetshenanigans.png",
-          width: 1113,
-          height: 626
+          url: "/images/pdanetshenanigans.png"
         },
         links: [
           {
