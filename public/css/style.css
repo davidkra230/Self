@@ -50,7 +50,7 @@ a:active {
   transform: translate(-50%, -50%);
 }
 
-@media (max-aspect-ratio: 1) {
+@media (max-aspect-ratio: 1.115) {
   #stuffshowcase-outer {
     width: 90vw !important;
     height: 69vh !important;

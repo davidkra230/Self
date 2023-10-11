@@ -32,10 +32,10 @@
     // rendering time
     var renderPage = () => {
         // pages..
-        totalPages = Math.floor((numCreations / (window.innerWidth / window.innerHeight > 1 ? 4 : 2)) + (1 - 1e-15))
+        totalPages = Math.floor((numCreations / (window.innerWidth / window.innerHeight > 1.115 ? 4 : 2)) + (1 - 1e-15))
         pageText.innerHTML = `Page ${currentPage}/${totalPages}`
 
-        var itemsPerPage = window.innerWidth / window.innerHeight > 1 ? 4 : 2
+        var itemsPerPage = window.innerWidth / window.innerHeight > 1.115 ? 4 : 2
 
         var renderedHTML = ''
         for (var renderStep = (currentPage - 1) * itemsPerPage; renderStep < ((currentPage - 1) * itemsPerPage) + itemsPerPage; renderStep++) {
