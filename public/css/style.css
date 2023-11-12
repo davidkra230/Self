@@ -90,6 +90,8 @@ a:active {
   height: auto;
   position: relative;
   place-self: center;
+  -webkit-filter: blur(1px);
+  filter: blur(1px);
 }
 
 #stuffshowcase-buttons {
@@ -116,8 +118,6 @@ a:active {
 #stuffshowcase-contentbox div div {
   background-color: #19191915;
   border-radius: 3%;
-  -webkit-backdrop-filter: blur(1px);
-  backdrop-filter: blur(1px);
   display: inline-flex;
   flex-wrap: nowrap;
   align-items: center;
